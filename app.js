@@ -136,3 +136,14 @@ db.post.find({lastModified:{$exists:true}})
 
 db.post.find({createdAt:{$type:"date"}})
 
+db.post.update({createdAt:{
+    $gt:new Date('2022-05-01')
+}},{$push:{category:"lorem"}});
+
+db.post.update({categories:{
+    $in:{categories:"voluptas"}//me and james are going over this one its not right but its close
+}},{$pull:{categories:"voluptas"}
+})
+db.post.deleteMany({categories:{
+   $in:{categories:"corrupti" }
+}})

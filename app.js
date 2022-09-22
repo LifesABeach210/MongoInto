@@ -119,3 +119,20 @@ db.post.find({objectId:{$gt:5}})
  db.post.find({objectId:{$gt:5}})
 
 db.post.find({author:'Alfred Davis'})
+
+
+db.post.update({
+    lastModified:{
+        $exists:false
+    }
+},{
+    $set:{
+        lastModified:new Date()
+    }
+})
+
+
+db.post.find({lastModified:{$exists:true}})
+
+db.post.find({createdAt:{$type:"date"}})
+
